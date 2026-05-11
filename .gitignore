@@ -1,0 +1,55 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments and local Python installs
+.venv/
+venv/
+env/
+ENV/
+
+# uv / package build artifacts
+.uv-cache/
+build/
+dist/
+*.egg-info/
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+
+# Local tool/runtime state
+.omx/
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Local editor workspace settings
+.vscode/
+
+# Local databases, dumps, and Neo4j runtime data
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.backup
+neo4j/
