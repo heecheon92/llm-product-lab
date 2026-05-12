@@ -45,6 +45,10 @@ uv run python src/03_test_all.py
 uv run python src/04_03_03_rag_complete.py
 ```
 
+Cypher 예제는 Neo4j Browser에서 실행합니다. `docs/` 노트에는 설명, `cypher` 코드 블록,
+가능한 경우 Mermaid 그래프가 함께 들어 있고, `cypher/` 파일에는 실행용 쿼리만 모았습니다.
+Browser 전용 명령어(`:play movies` 등)는 `.cypher` 파일이 아니라 `docs/` 노트에 정리되어 있습니다.
+
 ## 데이터 파일
 
 `src/` 스크립트 일부는 다음 샘플 문서 데이터를 사용합니다.
@@ -77,11 +81,32 @@ uv run python src/04_03_03_rag_complete.py
 | `04_03_03_rag_complete.py` | 완성형 기본 RAG 파이프라인 | 문서 청킹, 임베딩, 벡터 검색, 프롬프트, LLM 응답 생성을 하나의 RAG 체인으로 구성합니다. |
 | `04_03_04_rag_limitations.py` | 전통 RAG 한계 실험 | 관계 추론, 다단계 추론, 비교, 시간순 질문처럼 단순 벡터 검색 RAG가 약한 질문을 테스트합니다. |
 
+## Chapter 05: Neo4j와 Cypher 기초
+
+Chapter 5의 5-1~5-3은 Neo4j Browser와 Cypher 중심이라 `docs/`와 `cypher/`에 분리했습니다.
+5-4는 Python에서 Neo4j를 연결/조회/생성하는 실습 스크립트로 `src/`에 정리했습니다.
+
+| 파일 | 역할 |
+| --- | --- |
+| `docs/05_00_neo4j_cypher_basics.md` | Chapter 5 전체 개요와 Cypher 기본 패턴 |
+| `docs/05_01_neo4j_browser.md` | Neo4j Browser 사용법, Browser 명령, 실습 체크리스트 |
+| `cypher/05_01_neo4j_browser.cypher` | 영화 샘플 데이터 확인과 그래프 시각화 쿼리 |
+| `docs/05_02_cypher_read.md` | `MATCH`, `WHERE`, 관계 탐색, 집계 읽기 패턴 |
+| `cypher/05_02_cypher_read.cypher` | 읽기 전용 Cypher 실습 쿼리 |
+| `docs/05_03_cypher_write.md` | `CREATE`, `MERGE`, `SET`, `DELETE` 쓰기 패턴과 안전 메모 |
+| `cypher/05_03_cypher_write.cypher` | 연습용 데이터 생성/수정/삭제 쿼리 |
+| `src/05_04_01_neo4j_basic.py` | Python Neo4j 드라이버 연결 확인 |
+| `src/05_04_02_neo4j_query.py` | Python Neo4j 드라이버로 읽기/쓰기 트랜잭션 실행 |
+| `src/05_04_03_langchain_neo4j_basic.py` | LangChain `Neo4jGraph` 연결, 스키마 확인, 파라미터 쿼리 |
+| `src/05_04_04_build_korean_history_graph.py` | 한국 역사 예제 지식 그래프 생성 |
+
 ## 주의사항
 
 - `03_test_neo4j_data.py`는 Neo4j 데이터베이스에 실제 노드와 관계를 생성합니다.
 - OpenAI를 사용하는 스크립트는 API 호출 비용이 발생할 수 있습니다.
 - `04_03_03_rag_complete.py`, `04_03_04_rag_limitations.py`는 LLM 응답 생성을 포함하므로 실행 시 OpenAI API 호출이 발생합니다.
+- `cypher/05_03_cypher_write.cypher`는 Neo4j 데이터베이스에 연습용 노드와 관계를 생성/수정/삭제합니다.
+- `src/05_04_02_neo4j_query.py`, `src/05_04_04_build_korean_history_graph.py`는 Neo4j 데이터베이스에 데이터를 씁니다.
 - 스크립트를 `src/` 안에서 직접 실행해도 `.env`는 프로젝트 루트의 파일을 읽도록 구성되어 있습니다.
 
 ## 권장 학습 순서
@@ -92,3 +117,5 @@ uv run python src/04_03_03_rag_complete.py
 4. `04_02_03_vector_store_basic.py`, `04_03_01_rag_chunking.py`, `04_03_02_rag_vectorstore.py`로 LangChain 기반 검색 흐름을 익힙니다.
 5. `04_03_03_rag_complete.py`로 기본 RAG 체인을 실행합니다.
 6. `04_03_04_rag_limitations.py`로 전통 RAG의 한계를 관찰합니다.
+7. `docs/05_00_neo4j_cypher_basics.md`부터 Chapter 5 노트를 읽고, `cypher/05_*.cypher`를 Neo4j Browser에서 실행합니다.
+8. `src/05_04_*.py`로 Python과 LangChain에서 Neo4j를 사용하는 흐름을 확인합니다.
