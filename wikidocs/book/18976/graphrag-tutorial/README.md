@@ -100,6 +100,20 @@ Chapter 5의 5-1~5-3은 Neo4j Browser와 Cypher 중심이라 `docs/`와 `cypher/
 | `src/05_04_03_langchain_neo4j_basic.py` | LangChain `Neo4jGraph` 연결, 스키마 확인, 파라미터 쿼리 |
 | `src/05_04_04_build_korean_history_graph.py` | 한국 역사 예제 지식 그래프 생성 |
 
+## Chapter 06: 첫 번째 지식 그래프 만들기
+
+Chapter 6은 스키마 설계와 세종대왕 중심 지식 그래프 수동 구축을 다룹니다.
+스키마/검증 쿼리는 `docs/`와 `cypher/`에, Python으로 같은 그래프를 만드는 예제는 `src/`에 정리했습니다.
+
+| 파일 | 역할 |
+| --- | --- |
+| `docs/06_00_first_knowledge_graph.md` | Chapter 6 전체 개요와 구축 흐름 |
+| `docs/06_01_schema_design.md` | 지식 그래프 스키마 설계, 관계 유형, 제약조건 정리 |
+| `cypher/06_01_schema_design.cypher` | 스키마 확인과 제약조건 생성 쿼리 |
+| `docs/06_02_manual_knowledge_graph.md` | 세종대왕 중심 수동 지식 그래프 구축 노트 |
+| `cypher/06_02_manual_knowledge_graph.cypher` | 수동 그래프 구축, 검증, 질문 응답 Cypher |
+| `src/06_02_01_build_sejong_graph.py` | LangChain `Neo4jGraph`로 Chapter 6 그래프 구축 |
+
 ## 주의사항
 
 - `03_test_neo4j_data.py`는 Neo4j 데이터베이스에 실제 노드와 관계를 생성합니다.
@@ -107,6 +121,8 @@ Chapter 5의 5-1~5-3은 Neo4j Browser와 Cypher 중심이라 `docs/`와 `cypher/
 - `04_03_03_rag_complete.py`, `04_03_04_rag_limitations.py`는 LLM 응답 생성을 포함하므로 실행 시 OpenAI API 호출이 발생합니다.
 - `cypher/05_03_cypher_write.cypher`는 Neo4j 데이터베이스에 연습용 노드와 관계를 생성/수정/삭제합니다.
 - `src/05_04_02_neo4j_query.py`, `src/05_04_04_build_korean_history_graph.py`는 Neo4j 데이터베이스에 데이터를 씁니다.
+- `cypher/06_01_schema_design.cypher`는 Neo4j 제약조건을 생성할 수 있습니다.
+- `cypher/06_02_manual_knowledge_graph.cypher`, `src/06_02_01_build_sejong_graph.py`는 Neo4j 데이터베이스에 Chapter 6 연습 그래프를 씁니다.
 - 스크립트를 `src/` 안에서 직접 실행해도 `.env`는 프로젝트 루트의 파일을 읽도록 구성되어 있습니다.
 
 ## 권장 학습 순서
@@ -119,3 +135,4 @@ Chapter 5의 5-1~5-3은 Neo4j Browser와 Cypher 중심이라 `docs/`와 `cypher/
 6. `04_03_04_rag_limitations.py`로 전통 RAG의 한계를 관찰합니다.
 7. `docs/05_00_neo4j_cypher_basics.md`부터 Chapter 5 노트를 읽고, `cypher/05_*.cypher`를 Neo4j Browser에서 실행합니다.
 8. `src/05_04_*.py`로 Python과 LangChain에서 Neo4j를 사용하는 흐름을 확인합니다.
+9. `docs/06_00_first_knowledge_graph.md`부터 Chapter 6 노트를 읽고, `cypher/06_*.cypher` 또는 `src/06_02_01_build_sejong_graph.py`로 첫 지식 그래프를 구축합니다.
