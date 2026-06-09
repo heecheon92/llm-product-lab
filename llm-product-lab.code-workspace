@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "name": "llm-product-lab",
+      "path": "."
+    },
+    {
       "name": "16723-langgraph-project",
       "path": "wikidocs/book/16723/langgraph-project"
     },
